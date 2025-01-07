@@ -1,0 +1,55 @@
+/* 统计区域样式 */
+.stats-section {
+    padding: 0.8rem;
+}
+
+.wish-status {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pity-info, .wish-stats {
+    flex: 1;
+    font-size: 0.9rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+    padding: 0.3rem;
+}
+
+.wish-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.wish-stats h3 {
+    margin: 0 0 0.2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.wish-stat-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.3rem;
+}
+
+.wish-stat {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 0.1rem;
+}
+
+.star-icon {
+    font-size: 0.7rem;
+}
+
+.total-pulls {
+    margin-top: 0.2rem;
+    padding-top: 0.2rem;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+} 

@@ -1,0 +1,313 @@
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes float2 {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(20px) rotate(-5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.background-shapes {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.2;
+}
+
+.shape-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #4CAF50;
+    left: 75%;
+    top: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-square {
+    width: 80px;
+    height: 80px;
+    background: #2196F3;
+    left: 85%;
+    top: 65%;
+    transform: rotate(45deg);
+    animation: float2 7s ease-in-out infinite;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 86px solid #FFC107;
+    left: 65%;
+    top: 80%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.shape-donut {
+    width: 70px;
+    height: 70px;
+    border: 15px solid #E91E63;
+    border-radius: 50%;
+    left: 80%;
+    top: 40%;
+    animation: float2 9s ease-in-out infinite;
+}
+
+.shape-plus {
+    width: 60px;
+    height: 60px;
+    background: #9C27B0;
+    left: 70%;
+    top: 25%;
+    animation: float 7s ease-in-out infinite;
+}
+
+.shape-circle-2 {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #FF5722;
+    left: 15%;
+    top: 75%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.shape-donut-2 {
+    width: 60px;
+    height: 60px;
+    border: 12px solid #3F51B5;
+    border-radius: 50%;
+    left: 55%;
+    top: 60%;
+    animation: float2 8s ease-in-out infinite;
+}
+
+.shape-star {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid #F44336;
+    position: absolute;
+    left: 35%;
+    top: 45%;
+    animation: float 6s ease-in-out infinite;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0.5rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 消息样式增强 */
+#message {
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-wrong {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.message-correct {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    height: calc(100vh - 1rem);
+    max-width: 1400px;
+    margin: 0 auto;
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* 主要内容区 */
+.main-content {
+    flex: 1;
+    display: flex;
+    gap: 0.5rem;
+    min-height: 0;  /* 修复滚动问题 */
+}
+
+/* 左侧标签栏 */
+.function-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* 标签按钮 */
+.tab-button {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #607D8B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+.tab-button:hover {
+    background-color: #455A64;
+}
+
+.tab-button.active {
+    background-color: #2196F3;
+}
+
+/* 右侧内容区 */
+.function-section {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.function-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 标签内容 */
+.tab-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow-y: auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.game-section {
+    background: white;
+    padding: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.game-section h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #eee;
+    align-self: flex-start;  /* 标题左对齐 */
+    width: 100%;  /* 让标题占满宽度，保持下边框样式 */
+}
+
+.game-section p {
+    margin-top: 0.1rem;
+    margin-bottom: 0.0rem;
+}
+
+.currency-display {
+    font-size: 1.5rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.currency-icon {
+    font-size: 1.8rem;
+}
+
+.collect-button {
+    display: flex;
+    flex-direction: row;  /* 改为横向排列 */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;  /* 减小内边距 */
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    width: auto;  /* 自适应宽度 */
+}
+
+.message {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* 添加悬浮文字样式 */
+.floating-text {
+    position: fixed;
+    color: #fff;
+    font-size: 20px;
+    pointer-events: none;
+    animation: float-up 1s ease-out forwards;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}

@@ -1,0 +1,153 @@
+/* 祈愿区样式 */
+.wish-section {
+    grid-area: wish;
+    display: flex;
+    flex-direction: column;
+}
+
+.wish-results {
+    display: grid !important;
+    grid-template-columns: repeat(10, minmax(0, 1fr)) !important;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    overflow-y: auto;
+    margin-top: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+    padding-bottom: 25px;
+    min-height: 60px;
+    flex: 1;
+}
+
+.wish-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+
+.wish-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #9C27B0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wish-button:hover {
+    background-color: #7B1FA2;
+}
+
+.wish-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.wish-button .cost {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.pool-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+
+.pool-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #607D8B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pool-button:hover {
+    background-color: #455A64;
+}
+
+.pool-button.active {
+    background-color: #2196F3;
+}
+
+.wish-item {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    animation: appear 0.5s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.character-name {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 11px;
+    color: #333;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2px 4px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+/* 不同稀有度的颜色 */
+.wish-item.three-star {
+    background-color: #4a5568;
+}
+
+.wish-item.four-star {
+    background-color: #805ad5;
+    box-shadow: 0 0 10px #805ad5;
+}
+
+.wish-item.five-star {
+    background-color: #d69e2e;
+    box-shadow: 0 0 15px #d69e2e;
+}
+
+/* 根据稀有度调整名字颜色 */
+.wish-item.five-star .character-name {
+    color: #d69e2e;
+    font-weight: bold;
+}
+
+.wish-item.four-star .character-name {
+    color: #805ad5;
+    font-weight: bold;
+}
+
+.wish-item.three-star .character-name {
+    color: #4a5568;
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+} 

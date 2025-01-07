@@ -1,0 +1,98 @@
+/* 收集区样式 */
+.collect-section {
+    grid-area: collect;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collect-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.collect-button:hover {
+    transform: scale(1.05);
+    background-color: #45a049;
+}
+
+.collect-icon {
+    font-size: 1.5rem;
+}
+
+/* 修改升级按钮区域样式 */
+.upgrades {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.upgrade-button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 200px;
+}
+
+.upgrade-button:hover {
+    background-color: #1976D2;
+}
+
+.upgrade-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 添加收集器信息样式 */
+.collector-info {
+    width: 100%;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.collector-info p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 添加悬浮文字样式 */
+.floating-text {
+    position: absolute;
+    color: #000000;
+    font-weight: bold;
+    pointer-events: none;
+    animation: float-up 1s ease-out forwards;
+    text-shadow: 0 0 3px white;
+    z-index: 1000;
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+} 

@@ -1,0 +1,30 @@
+/* 拖动按钮容器 */
+.draggable-container {
+    padding: 1rem;
+    min-height: 200px;  /* 增加高度以便移动 */
+    background: #f8f9fa;
+    border-radius: 5px;
+    position: relative;  /* 用于定位按钮 */
+}
+
+/* 可拖动按钮样式 */
+.draggable-button {
+    padding: 0.8rem 1.2rem;
+    background: #607D8B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: move;
+    user-select: none;
+    position: absolute;  /* 绝对定位以便自由移动 */
+}
+
+.draggable-button:hover {
+    background: #455A64;
+}
+
+/* 拖动时的样式 */
+.draggable-button.dragging {
+    opacity: 0.5;
+    background: #455A64;
+} 

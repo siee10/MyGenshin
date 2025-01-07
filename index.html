@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原神</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="drag/drag.css">
+    <link rel="stylesheet" href="wish/wish.css">
+    <link rel="stylesheet" href="collect/collect.css">
+    <link rel="stylesheet" href="stats/stats.css">
+    <link rel="stylesheet" href="system/system.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-donut"></div>
+        <div class="shape shape-plus"></div>
+        <div class="shape shape-circle-2"></div>
+        <div class="shape shape-square-2"></div>
+        <div class="shape shape-triangle-2"></div>
+        <div class="shape shape-donut-2"></div>
+        <div class="shape shape-star"></div>
+    </div>
+    <div class="game-layout">
+        <div class="game-section">
+            <h2>状态</h2>
+            <div class="currency-display">
+                <span class="currency-icon">💎</span>
+                <span id="primogems">0</span> 原石
+            </div>
+            <div class="stats">
+                <p>每秒获得: <span id="perSecond">1</span> 原石</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="function-tabs">
+                <button class="tab-button active" data-tab="collect">收集</button>
+                <button class="tab-button" data-tab="wish">祈愿</button>
+                <button class="tab-button" data-tab="stats">统计</button>
+                <button class="tab-button" data-tab="system">系统</button>
+                <button class="tab-button" data-tab="test">测试</button>
+            </div>
+            <div class="game-section function-section">
+                <div class="function-content">
+                    <div class="tab-content collect-content active">
+                        <div class="collect-section">
+                            <h2>收集</h2>
+                            <div class="collector-info">
+                                <p>自动收集器: <span id="collectors">0</span> 个</p>
+                                <p>每个收集器效率: <span id="collectorEfficiency">1</span> 原石/秒</p>
+                            </div>
+                            <button id="collectButton" class="collect-button">
+                                <span class="collect-icon">💎</span>
+                                <span>收集原石</span>
+                            </button>
+                            <div class="upgrades">
+                                <button id="buyCollector" class="upgrade-button">
+                                    购买收集器 (💎10)
+                                </button>
+                                <button id="upgradeEfficiency" class="upgrade-button">
+                                    提升效率 (💎50)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content wish-content">
+                        <div class="wish-section">
+                            <h2>祈愿</h2>
+                            <div class="pool-selector">
+                                <button id="characterPool" class="pool-button active">角色池</button>
+                                <button id="weaponPool" class="pool-button">武器池</button>
+                            </div>
+                            <div class="wish-buttons">
+                                <button id="singleWish" class="wish-button">
+                                    单次祈愿
+                                    <span class="cost">160 💎</span>
+                                </button>
+                                <button id="tenWish" class="wish-button">
+                                    十连祈愿
+                                    <span class="cost">1600 💎</span>
+                                </button>
+                            </div>
+                            <div id="wishResults" class="wish-results"></div>
+                        </div>
+                    </div>
+                    <div class="tab-content stats-content">
+                        <div class="stats-section">
+                            <h2>统计</h2>
+                            <div class="wish-status">
+                                <div class="pity-info">
+                                    <p>距离4星保底: <span id="pity4">0</span>/10</p>
+                                    <p>距离5星保底: <span id="pity5">0</span>/90</p>
+                                    <p class="total-pulls">总抽数: <span id="totalPulls">0</span></p>
+                                </div>
+                                <div class="wish-stats">
+                                    <h3>抽卡统计</h3>
+                                    <div class="wish-stat-grid">
+                                        <div class="wish-stat">
+                                            <span class="star-icon">⭐⭐⭐⭐⭐</span>
+                                            <span id="fiveStarCount">0</span>
+                                            <span id="fiveStarRate">0%</span>
+                                        </div>
+                                        <div class="wish-stat">
+                                            <span class="star-icon">⭐⭐⭐⭐</span>
+                                            <span id="fourStarCount">0</span>
+                                            <span id="fourStarRate">0%</span>
+                                        </div>
+                                        <div class="wish-stat">
+                                            <span class="star-icon">⭐⭐⭐</span>
+                                            <span id="threeStarCount">0</span>
+                                            <span id="threeStarRate">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content system-content">
+                        <div class="system-section">
+                            <h2>系统</h2>
+                            <div class="save-management">
+                                <button id="saveButton" class="save-button">保存游戏</button>
+                                <button id="loadButton" class="save-button">读取存档</button>
+                                <button id="exportButton" class="save-button">导出存档</button>
+                                <button id="importButton" class="save-button">导入存档</button>
+                                <button id="resetButton" class="save-button danger">重置游戏</button>
+                            </div>
+                            <input type="file" id="importInput" style="display: none" accept=".json">
+                            <p id="message" class="message"></p>
+                        </div>
+                    </div>
+                    <div class="tab-content test-content">
+                        <div class="test-section">
+                            <h2>测试</h2>
+                            <div class="draggable-container">
+                                <button class="draggable-button" draggable="true">按钮 1</button>
+                                <button class="draggable-button" draggable="true">按钮 2</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+    <script src="drag/drag.js"></script>
+    <script src="wish/wish.js"></script>
+    <script src="collect/collect.js"></script>
+    <script src="stats/stats.js"></script>
+    <script src="system/system.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            new IdleGame();
+            new DragManager();
+        });
+    </script>
+</body>
+</html> 
