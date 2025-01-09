@@ -1,0 +1,28 @@
+.test-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+    justify-content: center;
+}
+
+.test-button {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.1s ease;
+}
+
+.test-button.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+    transform: scale(0.95);
+} 

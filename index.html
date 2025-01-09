@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="collect/collect.css">
     <link rel="stylesheet" href="stats/stats.css">
     <link rel="stylesheet" href="system/system.css">
+    <link rel="stylesheet" href="test/test.css">
+    <link rel="stylesheet" href="jump/jump.css">
 </head>
 <body>
     <div class="background-shapes">
@@ -42,6 +44,7 @@
                 <button class="tab-button" data-tab="stats">统计</button>
                 <button class="tab-button" data-tab="system">系统</button>
                 <button class="tab-button" data-tab="test">测试</button>
+                <button class="tab-button" data-tab="jump">跃动</button>
             </div>
             <div class="game-section function-section">
                 <div class="function-content">
@@ -135,9 +138,22 @@
                     <div class="tab-content test-content">
                         <div class="test-section">
                             <h2>测试</h2>
+                            <div class="test-buttons">
+                                <div id="testButtonD" class="test-button">D</div>
+                                <div id="testButtonF" class="test-button">F</div>
+                                <div id="testButtonJ" class="test-button">J</div>
+                                <div id="testButtonK" class="test-button">K</div>
+                            </div>
                             <div class="draggable-container">
                                 <button class="draggable-button" draggable="true">按钮 1</button>
                                 <button class="draggable-button" draggable="true">按钮 2</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content jump-content">
+                        <div class="jump-section">
+                            <h2>跃动</h2>
+                            <div id="jumpContainer" class="jump-container">
                             </div>
                         </div>
                     </div>
@@ -145,12 +161,15 @@
             </div>
         </div>
     </div>
+    <script src="https://pixijs.download/release/pixi.js"></script>
     <script src="game.js"></script>
     <script src="drag/drag.js"></script>
     <script src="wish/wish.js"></script>
     <script src="collect/collect.js"></script>
     <script src="stats/stats.js"></script>
     <script src="system/system.js"></script>
+    <script src="test/test.js"></script>
+    <script src="jump/jump.js"></script>
     <script>
         window.addEventListener('load', () => {
             new IdleGame();

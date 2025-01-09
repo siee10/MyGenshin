@@ -5,6 +5,8 @@ class IdleGame {
         this.wishManager = new WishManager(this);
         this.statsManager = new StatsManager(this);
         this.systemManager = new SystemManager(this);
+        this.testManager = new TestManager(this);
+        this.jumpManager = new JumpManager(this);
         
         // 初始化基础UI
         this.initializeBaseDOM();
@@ -15,6 +17,8 @@ class IdleGame {
         this.wishManager.initializeDOM();
         this.statsManager.initializeDOM();
         this.systemManager.initializeDOM();
+        this.testManager.initializeDOM();
+        this.jumpManager.initializeDOM();
         
         // 统一绑定事件
         this.bindAllEvents();
@@ -39,6 +43,8 @@ class IdleGame {
         this.collectManager.bindEvents();
         this.wishManager.bindEvents();
         this.systemManager.bindEvents();
+        this.testManager.bindEvents();
+        this.jumpManager.bindEvents();
         
         // 绑定标签切换事件
         this.initTabs();
