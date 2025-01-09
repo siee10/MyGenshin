@@ -77,18 +77,23 @@ class WishManager {
             this.wishResults.innerHTML = '';
             
             let completedAnimations = 0;
-            for (let i = 0; i < count; i++) {
-                setTimeout(() => {
-                    const result = this.getWishResult(count);
-                    this.showWishResult(result);
-                    completedAnimations++;
-                    
-                    if (completedAnimations === count) {
-                        this.isWishing = false;
-                        this.game.enableAllButtons();
-                    }
-                }, i * 100);
-            }
+            
+            // 创建一个Promise来处理所有的祈愿动画
+            const wishPromises = Array(count).fill().map((_, i) => {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        const result = this.getWishResult(count);
+                        this.showWishResult(result);
+                        resolve();
+                    }, i * 100);
+                });
+            });
+
+            // 等待所有祈愿动画完成
+            Promise.all(wishPromises).then(() => {
+                this.isWishing = false;
+                this.game.enableAllButtons();
+            });
         } else {
             this.game.showMessage('原石不足！', 'wrong');
         }

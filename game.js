@@ -116,19 +116,22 @@ class IdleGame {
 
     // 添加启用所有按钮的方法
     enableAllButtons() {
-        // 收集相关按钮状态由updateDisplay控制
-        this.collectManager.updateDisplay();
+        // 收集相关按钮
+        this.collectManager.collectButton.disabled = false;
+        this.collectManager.buyCollectorButton.disabled = false;
+        this.collectManager.upgradeEfficiencyButton.disabled = false;
         
-        // 祈愿相关按钮状态由updateDisplay控制
-        this.wishManager.updateDisplay();
+        // 祈愿相关按钮
+        this.wishManager.singleWishButton.disabled = false;
+        this.wishManager.tenWishButton.disabled = false;
+        this.wishManager.characterPoolButton.disabled = false;
+        this.wishManager.weaponPoolButton.disabled = false;
         
-        // 系统相关按钮总是可用
+        // 系统相关按钮
         this.systemManager.saveButton.disabled = false;
         this.systemManager.loadButton.disabled = false;
         this.systemManager.resetButton.disabled = false;
         this.systemManager.exportButton.disabled = false;
         this.systemManager.importButton.disabled = false;
-        this.wishManager.characterPoolButton.disabled = false;
-        this.wishManager.weaponPoolButton.disabled = false;
     }
 }
